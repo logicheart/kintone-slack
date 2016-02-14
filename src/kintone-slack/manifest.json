@@ -1,0 +1,47 @@
+{
+  "manifest_version": 1,
+  "version": 1,
+  "type": "APP",
+  "name": {
+    "ja": "Slack連携プラグイン",
+    "en": "Slack notification plugin"
+  },
+  "description": {
+    "ja": "Slackに通知します。",
+    "en": "Notify to Slack."
+  },
+  "icon": "image/icon.png",
+  "homepage_url": {
+    "ja": "https://github.com/logicheart/kintonte-slack",
+    "en": "https://github.com/logicheart/kintonte-slack"
+  },
+  "desktop": {
+    "js": [
+      "https://js.cybozu.com/jquery/2.2.0/jquery.min.js",
+      "https://js.cybozu.com/momentjs/2.11.1/moment-with-locales.min.js",
+      "js/plugin.js"
+    ],
+    "css": [
+      "css/plugin.css"
+    ]
+  },
+  "mobile": {
+    "js": [
+      "https://js.cybozu.com/jquery/2.2.0/jquery.min.js",
+      "https://js.cybozu.com/momentjs/2.11.1/moment-with-locales.min.js",
+      "js/plugin.js"
+    ]
+  },
+  "config": {
+    "html": "html/config.html",
+    "js": [
+      "https://js.cybozu.com/jquery/2.2.0/jquery.min.js",
+      "https://js.cybozu.com/momentjs/2.11.1/moment-with-locales.min.js",
+      "js/config.js"
+    ],
+    "css": [
+      "css/config.css"
+    ],
+    "required_params": ["slack_webhook_url", "slack_username", "slack_channel"]
+  }
+}
