@@ -12,8 +12,8 @@
   },
   "icon": "image/icon.png",
   "homepage_url": {
-    "ja": "https://github.com/logicheart/kintonte-slack",
-    "en": "https://github.com/logicheart/kintonte-slack"
+    "ja": "https://github.com/logicheart/kintone-slack",
+    "en": "https://github.com/logicheart/kintone-slack"
   },
   "desktop": {
     "js": [

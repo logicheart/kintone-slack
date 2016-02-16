@@ -2,34 +2,33 @@
 
   "use strict";
 
+  var config = kintone.plugin.app.getConfig(PLUGIN_ID);
+
   kintone.events.on(
-    ['app.record.create.show'],
+    ['app.record.create.submit', 'app.record.edit.submit'],
     function(event) {
-      var config = kintone.plugin.app.getConfig(PLUGIN_ID);
-      //if (!config) return;
+      console.log("create.show");
+      console.log(config);
+      if (!config) return;
 
       var record = event.record;
-
-      var text = "kintoneただ今参上！";
 
       var payload = {
         username: config.slack_username,
         channel: config.slack_channel,
-        text: encodeURIComponent(text),
+        text: encodeURIComponent(config.slack_message),
         icon_emoji: ":grinning:"
       };
 
-      var jqXHR = $.post({
+      var jqXHR = $.ajax({
+        type: 'post',
         url: config.slack_webhook_url,
-        data: "payload='" + JSON.stringify(payload) + "'",
-        dataType: "json"
-      }).done (function(result, status, xhr) {
-        console.log("Done.");
-      }).fail (function(xhr, status, error) {
-        console.log("Fail." + status + " " + error);
+        data: 'payload=' + JSON.stringify(payload)
+      }).done(function(result, textStatus, jqXHR){
+        console.log("Done. result=" + result);
+    	}).fail(function(data, textStatus, errorThrown){
+        console.log("Fail. status=" + textStatus + " " + errorThrown.message);
       });
-      console.log(JSON.stringify(payload));
-
     }
   );
 

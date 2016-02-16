@@ -11,7 +11,7 @@
 
   <div class="kintoneplugin-row">
     <label class="kintoneplugin-label">
-      <span>Slack User Name</span>
+      <span>User Name</span>
       <span class="kintoneplugin-require">*</span>
     </label>
     <div class="kintoneplugin-input-outer">
@@ -21,7 +21,7 @@
 
   <div class="kintoneplugin-row">
     <label class="kintoneplugin-label">
-      <span>Slack Channel</span>
+      <span>Channel</span>
       <span class="kintoneplugin-require">*</span>
     </label>
     <div class="kintoneplugin-input-outer">
@@ -29,8 +29,29 @@
     </div>
   </div>
 
+  <div class="kintoneplugin-row">
+    <label class="kintoneplugin-label">
+      <span>Message</span>
+    </label>
+    <div class="kintoneplugin-input-outer">
+      <input id="slack_message" class="kintoneplugin-input-text slack-message" type="text">
+    </div>
+  </div>
+
+  <div class="kintoneplugin-row">
+    <label class="kintoneplugin-label">
+      <span>Emoji</span>
+    </label>
+    <div class="kintoneplugin-input-outer">
+      <input id="slack_emoji" class="kintoneplugin-input-text slack-emoji" type="text">
+    </div>
+  </div>
+
   <div class="block">
     <button type="button" id="submit" class="kintoneplugin-button-dialog-ok">保存</button>
     <button type="button" id="cancel" class="kintoneplugin-button-dialog-cancel">キャンセル</button>
+  </div>
+
+  <div class="kintoneplugin-alert">
   </div>
 </div>
