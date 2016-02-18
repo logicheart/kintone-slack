@@ -5,19 +5,31 @@
   var config = kintone.plugin.app.getConfig(PLUGIN_ID);
 
   kintone.events.on(
-    ['app.record.create.submit', 'app.record.edit.submit'],
+    ['app.record.detail.process.proceed'],
     function(event) {
-      console.log("create.show");
+      console.log("event.action=" + event.action);
       console.log(config);
       if (!config) return;
 
       var record = event.record;
+      console.log(JSON.stringify(record));
+
+      var message = encodeURIComponent(config.slack_message);
+      var regwords = message.match(/{{[^}]+}}/);
+      for (var i in regwords) {
+        var regword = regwords[i];
+        var fieldName = regword.replace(/^{{/, '').replace(/}}$/, '');
+
+        var value = record.getFieldElement(fieldName);
+        console.log("regword="+regword+" field="+fieldName+" value="+value);
+        message.replace(regword, value);
+      }
 
       var payload = {
         username: config.slack_username,
         channel: config.slack_channel,
-        text: encodeURIComponent(config.slack_message),
-        icon_emoji: ":grinning:"
+        text: message,
+        icon_emoji: config.emoji
       };
 
       var jqXHR = $.ajax({
