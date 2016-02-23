@@ -29,7 +29,10 @@
     ```
    {{EMPLOYEE_NAME}}から休暇申請がありました。
     ```
-  * Emoji: 絵文字コードを設定（例：:smile:）  ※参照：http://www.emoji-cheat-sheet.com
+  * Emoji: 絵文字コードを設定 ※参照：http://www.emoji-cheat-sheet.com
+  ```
+  :smile:
+  ```
 
 ## 注意
 
